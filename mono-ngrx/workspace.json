@@ -1,0 +1,331 @@
+{
+  "version": 2,
+  "projects": {
+    "sample-office": {
+      "projectType": "application",
+      "root": "apps/sample-office",
+      "sourceRoot": "apps/sample-office/src",
+      "prefix": "mono-ngrx",
+      "targets": {
+        "build": {
+          "executor": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/sample-office",
+            "index": "apps/sample-office/src/index.html",
+            "main": "apps/sample-office/src/main.ts",
+            "polyfills": "apps/sample-office/src/polyfills.ts",
+            "tsConfig": "apps/sample-office/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/sample-office/src/assets",
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              }
+            ],
+            "styles": [
+              "apps/sample-office/src/styles.scss",
+              {
+                "input": "apps/sample-office/src/theme/variables.scss"
+              }
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/sample-office/src/environments/environment.ts",
+                  "with": "apps/sample-office/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "sample-office:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "sample-office:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "executor": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "sample-office:build"
+          }
+        },
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/sample-office/tsconfig.app.json",
+              "apps/sample-office/tsconfig.spec.json",
+              "apps/sample-office/tsconfig.editor.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/sample-office/**/*"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/sample-office/src/test.ts",
+            "tsConfig": "apps/sample-office/tsconfig.spec.json",
+            "karmaConfig": "apps/sample-office/karma.conf.js",
+            "polyfills": "apps/sample-office/src/polyfills.ts",
+            "styles": [],
+            "scripts": [],
+            "assets": []
+          }
+        },
+        "cap": {
+          "executor": "@nxtend/capacitor:cap",
+          "options": {
+            "cmd": "--help"
+          }
+        },
+        "add": {
+          "executor": "@nxtend/capacitor:cap",
+          "options": {
+            "cmd": "add",
+            "packageInstall": true
+          },
+          "configurations": {
+            "ios": {
+              "cmd": "add ios"
+            },
+            "android": {
+              "cmd": "add android"
+            }
+          }
+        },
+        "copy": {
+          "executor": "@nxtend/capacitor:cap",
+          "options": {
+            "cmd": "copy",
+            "packageInstall": false
+          },
+          "configurations": {
+            "ios": {
+              "cmd": "copy ios"
+            },
+            "android": {
+              "cmd": "copy android"
+            }
+          }
+        },
+        "open": {
+          "executor": "@nxtend/capacitor:cap",
+          "options": {
+            "cmd": "open",
+            "packageInstall": false
+          },
+          "configurations": {
+            "ios": {
+              "cmd": "open ios"
+            },
+            "android": {
+              "cmd": "open android"
+            }
+          }
+        },
+        "sync": {
+          "executor": "@nxtend/capacitor:cap",
+          "options": {
+            "cmd": "sync",
+            "packageInstall": true
+          },
+          "configurations": {
+            "ios": {
+              "cmd": "sync ios"
+            },
+            "android": {
+              "cmd": "sync android"
+            }
+          }
+        },
+        "update": {
+          "executor": "@nxtend/capacitor:cap",
+          "options": {
+            "cmd": "update",
+            "packageInstall": true
+          },
+          "configurations": {
+            "ios": {
+              "cmd": "update ios"
+            },
+            "android": {
+              "cmd": "update android"
+            }
+          }
+        }
+      }
+    },
+    "sample-office-e2e": {
+      "root": "apps/sample-office-e2e",
+      "sourceRoot": "apps/sample-office-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/sample-office-e2e/cypress.json",
+            "tsConfig": "apps/sample-office-e2e/tsconfig.e2e.json",
+            "devServerTarget": "sample-office:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "sample-office:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/sample-office-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/sample-office-e2e/**/*"
+            ]
+          }
+        }
+      }
+    },
+    "sample-office-main-feature": {
+      "projectType": "library",
+      "root": "libs/sample-office/main-feature",
+      "sourceRoot": "libs/sample-office/main-feature/src",
+      "prefix": "mono-ngrx",
+      "targets": {
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/sample-office/main-feature/tsconfig.lib.json",
+              "libs/sample-office/main-feature/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/sample-office/main-feature/**/*"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/sample-office/main-feature/src/test.ts",
+            "tsConfig": "libs/sample-office/main-feature/tsconfig.spec.json",
+            "karmaConfig": "libs/sample-office/main-feature/karma.conf.js"
+          }
+        }
+      }
+    },
+    "sample-office-employees-feature": {
+      "projectType": "library",
+      "root": "libs/sample-office/employees/feature",
+      "sourceRoot": "libs/sample-office/employees/feature/src",
+      "prefix": "mono-ngrx",
+      "targets": {
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/sample-office/employees/feature/tsconfig.lib.json",
+              "libs/sample-office/employees/feature/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/sample-office/employees/feature/**/*"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/sample-office/employees/feature/src/test.ts",
+            "tsConfig": "libs/sample-office/employees/feature/tsconfig.spec.json",
+            "karmaConfig": "libs/sample-office/employees/feature/karma.conf.js"
+          }
+        }
+      }
+    },
+    "sample-office-employees-ui": {
+      "projectType": "library",
+      "root": "libs/sample-office/employees/ui",
+      "sourceRoot": "libs/sample-office/employees/ui/src",
+      "prefix": "mono-ngrx",
+      "targets": {
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/sample-office/employees/ui/tsconfig.lib.json",
+              "libs/sample-office/employees/ui/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/sample-office/employees/ui/**/*"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/sample-office/employees/ui/src/test.ts",
+            "tsConfig": "libs/sample-office/employees/ui/tsconfig.spec.json",
+            "karmaConfig": "libs/sample-office/employees/ui/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nxtend/ionic-angular"
+  },
+  "generators": {
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "tslint",
+      "unitTestRunner": "karma",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "tslint",
+      "unitTestRunner": "karma"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "sample-office"
+}

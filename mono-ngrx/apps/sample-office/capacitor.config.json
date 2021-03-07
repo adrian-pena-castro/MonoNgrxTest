@@ -1,0 +1,13 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "sampleOffice",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "../../dist/apps/sample-office",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}

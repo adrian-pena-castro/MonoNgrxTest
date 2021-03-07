@@ -1,0 +1,7 @@
+{
+  "name": "sample-office",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

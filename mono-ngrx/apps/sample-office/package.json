@@ -1,0 +1,6 @@
+{
+  "name": "sample-office",
+  "devDependencies": {
+    "@capacitor/cli": "^2.4.5"
+  }
+}

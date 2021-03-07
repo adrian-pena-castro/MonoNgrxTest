@@ -1,0 +1,30 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@mono-ngrx/sample-office/main-feature": [
+        "libs/sample-office/main-feature/src/index.ts"
+      ],
+      "@mono-ngrx/sample-office/employees/feature": [
+        "libs/sample-office/employees/feature/src/index.ts"
+      ],
+      "@mono-ngrx/sample-office/employees/ui": [
+        "libs/sample-office/employees/ui/src/index.ts"
+      ]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
