@@ -1,4 +1,5 @@
 <ion-toolbar>
     <ion-title>Employees</ion-title>
  </ion-toolbar>
-<mono-ngrx-employee-card></mono-ngrx-employee-card>
+<mono-ngrx-employee-card *ngFor="let employee of employees$ | async"
+[employee]="employee"></mono-ngrx-employee-card>
