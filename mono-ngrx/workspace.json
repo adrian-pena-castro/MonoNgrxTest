@@ -306,6 +306,35 @@
           }
         }
       }
+    },
+    "sample-office-employees-data-access": {
+      "projectType": "library",
+      "root": "libs/sample-office/employees/data-access",
+      "sourceRoot": "libs/sample-office/employees/data-access/src",
+      "prefix": "mono-ngrx",
+      "targets": {
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/sample-office/employees/data-access/tsconfig.lib.json",
+              "libs/sample-office/employees/data-access/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/sample-office/employees/data-access/**/*"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/sample-office/employees/data-access/src/test.ts",
+            "tsConfig": "libs/sample-office/employees/data-access/tsconfig.spec.json",
+            "karmaConfig": "libs/sample-office/employees/data-access/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "cli": {

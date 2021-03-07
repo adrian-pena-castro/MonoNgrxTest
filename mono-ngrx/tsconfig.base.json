@@ -23,6 +23,9 @@
       ],
       "@mono-ngrx/sample-office/employees/ui": [
         "libs/sample-office/employees/ui/src/index.ts"
+      ],
+      "@mono-ngrx/sample-office/employees/data-access": [
+        "libs/sample-office/employees/data-access/src/index.ts"
       ]
     }
   },

@@ -31,13 +31,16 @@
       "implicitDependencies": ["sample-office"]
     },
     "sample-office-main-feature": {
-      "tags": []
+      "tags": ["type:feature", "scope:sample-office"]
     },
     "sample-office-employees-feature": {
-      "tags": []
+      "tags": ["type:feature", "scope:sample-office"]
     },
     "sample-office-employees-ui": {
-      "tags": []
+      "tags": ["type:ui", "scope:sample-office"]
+    },
+    "sample-office-employees-data-access": {
+      "tags": ["type:data-access", "scope:sample-office"]
     }
   }
 }
