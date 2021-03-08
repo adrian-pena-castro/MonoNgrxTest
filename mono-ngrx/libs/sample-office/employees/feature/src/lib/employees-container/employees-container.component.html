@@ -1,5 +1,14 @@
 <ion-toolbar>
     <ion-title>Employees</ion-title>
  </ion-toolbar>
-<mono-ngrx-employee-card *ngFor="let employee of employees$ | async"
-[employee]="employee"></mono-ngrx-employee-card>
+
+ <ng-container *ngIf="(loaded$ | async) === false else data">
+    <mono-ngrx-employee-card-skeleton></mono-ngrx-employee-card-skeleton>
+    <mono-ngrx-employee-card-skeleton></mono-ngrx-employee-card-skeleton>
+    <mono-ngrx-employee-card-skeleton></mono-ngrx-employee-card-skeleton>
+ </ng-container>
+<ng-container #data>
+    <mono-ngrx-employee-card *ngFor="let employee of employees$ | async"
+    [employee]="employee"></mono-ngrx-employee-card>
+</ng-container>
+

@@ -1,4 +1,5 @@
-import { Employee } from '../../models/employee.model';
+import { Employee } from '@mono-ngrx/sample-office/util';
+
 
 /**
  * Interface for the 'Employees' data

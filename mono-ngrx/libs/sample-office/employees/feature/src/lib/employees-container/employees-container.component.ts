@@ -12,6 +12,7 @@ export class EmployeesContainerComponent implements OnInit {
   constructor(private employeesFacade: EmployeesFacade) { }
 
   employees$ = this.employeesFacade.allEmployees$;
+  loaded$ = this.employeesFacade.loaded$;
   
   ngOnInit(): void {
     this.employeesFacade.init();
