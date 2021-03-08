@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of, timer } from 'rxjs';
 import { EmployeesResponse } from '../models/employees-response.model';
-import { tap } from 'rxjs/operators';
+import { map, mergeMap, tap } from 'rxjs/operators';
 
-
+import { delay } from 'rxjs/internal/operators';
+import { concatMap } from 'rxjs/internal/operators';
 
 @Injectable({
     providedIn: 'root',
@@ -19,7 +20,9 @@ import { tap } from 'rxjs/operators';
   
     getEmployees(): Observable<EmployeesResponse>{   
       return this.http.get<EmployeesResponse>(this.urlEmployees, {}).pipe(
-          tap((response) => this.catchError(response))
+          concatMap(response => of(response).pipe(delay(5000),
+          map((response, number) => this.catchError(response)))
+          )
       )
     }
 
