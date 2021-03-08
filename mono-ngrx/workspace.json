@@ -335,6 +335,35 @@
           }
         }
       }
+    },
+    "sample-office-util": {
+      "projectType": "library",
+      "root": "libs/sample-office/util",
+      "sourceRoot": "libs/sample-office/util/src",
+      "prefix": "mono-ngrx",
+      "targets": {
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/sample-office/util/tsconfig.lib.json",
+              "libs/sample-office/util/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/sample-office/util/**/*"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/sample-office/util/src/test.ts",
+            "tsConfig": "libs/sample-office/util/tsconfig.spec.json",
+            "karmaConfig": "libs/sample-office/util/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "cli": {

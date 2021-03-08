@@ -1,4 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Employee } from '@mono-ngrx/sample-office/util';
+
 
 @Component({
   selector: 'mono-ngrx-employee-card',
@@ -8,10 +10,10 @@ import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core
 })
 export class EmployeeCardComponent implements OnInit {
 
-  constructor() { }
-
   @Input()
-  public employee: any;
+  public employee: Employee;
+
+  constructor() { }
 
   ngOnInit(): void {
   }

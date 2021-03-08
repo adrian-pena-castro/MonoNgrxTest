@@ -26,7 +26,8 @@
       ],
       "@mono-ngrx/sample-office/employees/data-access": [
         "libs/sample-office/employees/data-access/src/index.ts"
-      ]
+      ],
+      "@mono-ngrx/sample-office/util": ["libs/sample-office/util/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

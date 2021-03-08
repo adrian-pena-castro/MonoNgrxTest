@@ -41,6 +41,9 @@
     },
     "sample-office-employees-data-access": {
       "tags": ["type:data-access", "scope:sample-office"]
+    },
+    "sample-office-util": {
+      "tags": []
     }
   }
 }
