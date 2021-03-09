@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Router } from '@angular/router';
 import { EmployeesFacade } from '@mono-ngrx/sample-office/employees/data-access';
 
 @Component({
@@ -9,7 +10,7 @@ import { EmployeesFacade } from '@mono-ngrx/sample-office/employees/data-access'
 })
 export class EmployeesContainerComponent implements OnInit {
 
-  constructor(private employeesFacade: EmployeesFacade) { }
+  constructor(private employeesFacade: EmployeesFacade, private router: Router) { }
 
   employees$ = this.employeesFacade.allEmployees$;
   loaded$ = this.employeesFacade.loaded$;
@@ -18,4 +19,8 @@ export class EmployeesContainerComponent implements OnInit {
     this.employeesFacade.init();
   }
 
+  public goToDetails(id: number): void {
+    console.log('details', id)
+    this.router.navigate([`employees/${id}`]);
+  }
 }

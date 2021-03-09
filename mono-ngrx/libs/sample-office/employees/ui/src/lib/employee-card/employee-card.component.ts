@@ -22,6 +22,7 @@ export class EmployeeCardComponent implements OnInit {
   }
 
   public onTitleClicked(): void {
+    console.log(this.employee.id)
     this.titleClicked.emit(this.employee.id);
   }
 }

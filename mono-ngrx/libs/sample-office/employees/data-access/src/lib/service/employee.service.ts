@@ -27,6 +27,7 @@ import { concatMap } from 'rxjs/internal/operators';
     }
 
     catchError(response: EmployeesResponse) {
+      console.log('response',response);
         if(response.status !== this.SUCCESS)
         {
             throw new Error('Se ha producido un error');
