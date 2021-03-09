@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { Employee } from '@mono-ngrx/sample-office/util';
 
 @Component({
@@ -12,9 +12,15 @@ export class EmployeeCardComponent implements OnInit {
   @Input()
   public employee: Employee;
 
+  @Output()
+  public titleClicked: EventEmitter<number> = new EventEmitter<number>();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  public onTitleClicked(): void {
+    this.titleClicked.emit(this.employee.id);
+  }
 }
