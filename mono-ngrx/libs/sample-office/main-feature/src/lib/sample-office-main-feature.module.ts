@@ -13,16 +13,17 @@ import { IonicModule } from '@ionic/angular';
       {
         path: '', 
         component: MainContainerComponent,
-        children: [{
-          path: '',
-          redirectTo: 'employees',
-          pathMatch: 'full',
-        },
+        children: [
         {
           path: 'employees',
           loadChildren: () =>
             import('@mono-ngrx/sample-office/employees/feature').then((m) => m.SampleOfficeEmployeesFeatureModule),
-        }
+        },
+        {
+          path: '',
+          redirectTo: 'employees',
+          pathMatch: 'full',
+        },
         ]} 
     ]),
   ],

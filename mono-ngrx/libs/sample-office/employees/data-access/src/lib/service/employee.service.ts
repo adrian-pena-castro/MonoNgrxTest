@@ -19,4 +19,7 @@ import { EmployeesResponse } from '../models/employees-response.model';
       return this.http.get<EmployeesResponse>(this.urlEmployees, null);
     }
   
+    getEmployeeDetails(id: string): Observable<HttpEvent<EmployeesResponse>>{   
+      return this.http.get<EmployeesResponse>(`${this.urlEmployees}/${id}`, null);
+    }
   }
