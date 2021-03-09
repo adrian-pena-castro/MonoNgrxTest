@@ -4,7 +4,10 @@ import { RouterModule } from '@angular/router';
 import { EmployeesContainerComponent } from './employees-container/employees-container.component';
 import { SampleOfficeEmployeesUiModule } from '@mono-ngrx/sample-office/employees/ui'
 import { IonicModule } from '@ionic/angular';
+
 import { SampleOfficeEmployeesDataAccessModule } from '@mono-ngrx/sample-office/employees/data-access';
+import { EmployeeDetailContainerComponent } from './employee-detail-container/employee-detail-container.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -12,10 +15,12 @@ import { SampleOfficeEmployeesDataAccessModule } from '@mono-ngrx/sample-office/
     SampleOfficeEmployeesDataAccessModule,
     SampleOfficeEmployeesUiModule,
     RouterModule.forChild([
-      {path: '', pathMatch: 'full', component: EmployeesContainerComponent} 
+      {path: ':id', component: EmployeeDetailContainerComponent},
+      {path: '', pathMatch: 'full', component: EmployeesContainerComponent},
+      
     ]),
   ],
-  declarations: [EmployeesContainerComponent],
-  exports: [EmployeesContainerComponent]
+  declarations: [EmployeesContainerComponent, EmployeeDetailContainerComponent],
+  exports: [EmployeesContainerComponent, EmployeeDetailContainerComponent]
 })
 export class SampleOfficeEmployeesFeatureModule {}

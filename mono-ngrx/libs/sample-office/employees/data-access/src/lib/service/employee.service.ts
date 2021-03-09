@@ -34,4 +34,7 @@ import { concatMap } from 'rxjs/internal/operators';
         return response;
     }
   
+    getEmployeeDetails(id: string): Observable<HttpEvent<EmployeesResponse>>{   
+      return this.http.get<EmployeesResponse>(`${this.urlEmployees}/${id}`, null);
+    }
   }
