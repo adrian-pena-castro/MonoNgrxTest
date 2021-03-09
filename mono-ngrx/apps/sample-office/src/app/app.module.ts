@@ -11,6 +11,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { StoreRouterConnectingModule, routerReducer  } from '@ngrx/router-store';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -23,7 +24,7 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientModule,
     NxModule.forRoot(),
     StoreModule.forRoot(
-      {},
+      {router: routerReducer,},
       {
         runtimeChecks: {
           strictActionImmutability: true,
@@ -31,6 +32,7 @@ import { AppRoutingModule } from './app-routing.module';
         }
       }
     ),
+    StoreRouterConnectingModule.forRoot(),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument()],
   providers: [
