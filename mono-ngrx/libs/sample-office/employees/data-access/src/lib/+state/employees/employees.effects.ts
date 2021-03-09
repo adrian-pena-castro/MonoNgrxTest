@@ -21,8 +21,17 @@ export class EmployeesEffects {
       ))
     )
     )
-  ))
-  ;
+  ));
+
+
+  loadDetails$ = createEffect(() => this.actions$.pipe(
+    ofType(EmployeesActions.loadEmployeeDetails),
+    switchMap((action) => this.employeeService.getEmployeeDetails(action.id)
+    .pipe(
+      map(response => (EmployeesActions.loadEmployeeDetailsSuccess({employee: response.data})),
+      catchError((error)=> of(EmployeesActions.loadEmployeeDetailsFailure({error}))))
+    ))
+  ));
 
   constructor(private actions$: Actions,
     private employeeService: EmployeeService) {}

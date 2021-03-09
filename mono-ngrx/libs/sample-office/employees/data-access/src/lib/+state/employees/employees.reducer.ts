@@ -25,7 +25,8 @@ export const initialState: State = employeesAdapter.getInitialState({
 
 const employeesReducer = createReducer(
   initialState,
-  on(EmployeesActions.init, (state) => ({
+  on(EmployeesActions.init, 
+    EmployeesActions.loadEmployeeDetails, (state) => ({
     ...state,
     loaded: false,
     error: null,
@@ -33,7 +34,12 @@ const employeesReducer = createReducer(
   on(EmployeesActions.loadEmployeesSuccess, (state, { employees }) =>
     employeesAdapter.setAll(employees, { ...state, loaded: true })
   ),
-  on(EmployeesActions.loadEmployeesFailure, (state, { error }) => ({
+  on(EmployeesActions.loadEmployeeDetailsSuccess, (state, { employee }) =>
+    employeesAdapter.upsertOne(employee, { ...state, loaded: true })
+  ),
+  on(EmployeesActions.loadEmployeesFailure,
+    EmployeesActions.loadEmployeeDetailsFailure
+    , (state, { error }) => ({
     ...state,
     error,
   }))
