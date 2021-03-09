@@ -2,7 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpEvent } from '@angular/common/http';
 import { Observable, of, timer } from 'rxjs';
 import { EmployeesResponse } from '../models/employees-response.model';
+
 import { map, mergeMap, tap } from 'rxjs/operators';
+
+import { EmployeeDetailsResponse } from '../models/employee-details-response.model';
+
 
 import { delay } from 'rxjs/internal/operators';
 import { concatMap } from 'rxjs/internal/operators';
@@ -35,7 +39,7 @@ import { concatMap } from 'rxjs/internal/operators';
         return response;
     }
   
-    getEmployeeDetails(id: string): Observable<HttpEvent<EmployeesResponse>>{   
-      return this.http.get<EmployeesResponse>(`${this.urlEmployees}/${id}`, null);
+    getEmployeeDetails(id: string): Observable<HttpEvent<EmployeeDetailsResponse>>{   
+      return this.http.get<EmployeeDetailsResponse>(`${this.urlEmployees}/${id}`, null);
     }
   }
