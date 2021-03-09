@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { EmployeesFacade } from '@mono-ngrx/sample-office/employees/data-access';
 
 @Component({
   selector: 'mono-ngrx-employee-detail-container',
@@ -8,9 +9,13 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class EmployeeDetailContainerComponent implements OnInit {
 
-  constructor() { }
+
+  public selectedEmployees$ = this.employeesFacade.selectedEmployees$;
+
+  constructor(private employeesFacade : EmployeesFacade) { }
 
   ngOnInit(): void {
+    this.employeesFacade.loadDetails();
   }
 
 }

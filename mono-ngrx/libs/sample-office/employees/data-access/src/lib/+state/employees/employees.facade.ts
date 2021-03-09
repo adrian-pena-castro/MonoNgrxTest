@@ -25,4 +25,8 @@ export class EmployeesFacade {
   init() {
     this.store.dispatch(EmployeesActions.init());
   }
+
+  loadDetails() {
+    this.store.dispatch(EmployeesActions.loadEmployeeDetails());
+  }
 }

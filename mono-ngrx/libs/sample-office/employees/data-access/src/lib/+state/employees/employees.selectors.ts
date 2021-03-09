@@ -1,3 +1,4 @@
+import { RouterSelectors } from '@mono-ngrx/sample-office/util';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import {
   EMPLOYEES_FEATURE_KEY,
@@ -39,8 +40,15 @@ export const getSelectedId = createSelector(
   (state: State) => state.selectedId
 );
 
+
+
+export const getSelectedIdFromRouter = createSelector(
+  RouterSelectors.selectParamId,
+  (id): number => { console.log(id); return Number(id); }
+);
+
 export const getSelected = createSelector(
   getEmployeesEntities,
-  getSelectedId,
+  getSelectedIdFromRouter,
   (entities, selectedId) => selectedId && entities[selectedId]
 );

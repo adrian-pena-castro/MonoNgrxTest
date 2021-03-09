@@ -1,4 +1,4 @@
 <ion-toolbar>
     <ion-title>Employee detail</ion-title>
  </ion-toolbar>
- <mono-ngrx-employee-card></mono-ngrx-employee-card>
+ <mono-ngrx-employee-card [employee]="selectedEmployees$ | async"></mono-ngrx-employee-card>

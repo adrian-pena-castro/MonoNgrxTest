@@ -10,6 +10,7 @@ import { EmployeeDetailsResponse } from '../models/employee-details-response.mod
 
 import { delay } from 'rxjs/internal/operators';
 import { concatMap } from 'rxjs/internal/operators';
+import { CommonResponse } from '../models/common-response.model';
 
 @Injectable({
     providedIn: 'root',
@@ -30,7 +31,7 @@ import { concatMap } from 'rxjs/internal/operators';
       )
     }
 
-    catchError(response: EmployeesResponse) {
+    catchError(response: any) {
       console.log('response',response);
         if(response.status !== this.SUCCESS)
         {
@@ -39,7 +40,9 @@ import { concatMap } from 'rxjs/internal/operators';
         return response;
     }
   
-    getEmployeeDetails(id: string): Observable<HttpEvent<EmployeeDetailsResponse>>{   
-      return this.http.get<EmployeeDetailsResponse>(`${this.urlEmployees}/${id}`, null);
+    getEmployeeDetails(id: number): Observable<EmployeeDetailsResponse>{   
+      return this.http.get<EmployeeDetailsResponse>(`${this.urlEmployees}/${id}`, {}).pipe(
+        map((response)=>  this.catchError(response))
+      );
     }
   }

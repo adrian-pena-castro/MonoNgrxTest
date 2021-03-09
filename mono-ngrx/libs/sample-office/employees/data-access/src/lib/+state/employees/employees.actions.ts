@@ -16,8 +16,7 @@ export const loadEmployeesFailure = createAction(
 
 
 export const loadEmployeeDetails = createAction(
-  '[Employee Detail Page] load',
-  props<{ id: number }>()
+  '[Employee Detail Page] load'
 );
 
 export const loadEmployeeDetailsSuccess = createAction(

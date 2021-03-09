@@ -14,16 +14,18 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { StoreRouterConnectingModule, routerReducer  } from '@ngrx/router-store';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), 
+  imports: [BrowserModule, 
+    IonicModule.forRoot(), 
     AppRoutingModule,
     HttpClientModule,
     NxModule.forRoot(),
     StoreModule.forRoot(
-      {},
+      {router: routerReducer,},
       {
         runtimeChecks: {
           strictActionImmutability: true,
@@ -32,6 +34,7 @@ import { AppRoutingModule } from './app-routing.module';
       }
     ),
     EffectsModule.forRoot([]),
+    StoreRouterConnectingModule.forRoot(),
     StoreDevtoolsModule.instrument()],
   providers: [
     StatusBar,
