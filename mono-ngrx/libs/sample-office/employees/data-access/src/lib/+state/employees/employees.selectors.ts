@@ -44,7 +44,7 @@ export const getSelectedId = createSelector(
 
 export const getSelectedIdFromRouter = createSelector(
   RouterSelectors.selectParamId,
-  (id): number => { console.log(id); return Number(id); }
+  (id): number => { console.log('selectedId', id); return Number(id); }
 );
 
 export const getSelected = createSelector(

@@ -15,9 +15,8 @@ import { EmployeeDetailContainerComponent } from './employee-detail-container/em
     SampleOfficeEmployeesDataAccessModule,
     SampleOfficeEmployeesUiModule,
     RouterModule.forChild([
+      {path: '', component: EmployeesContainerComponent},
       {path: ':id', component: EmployeeDetailContainerComponent},
-      {path: '', pathMatch: 'full', component: EmployeesContainerComponent},
-      
     ]),
   ],
   declarations: [EmployeesContainerComponent, EmployeeDetailContainerComponent],

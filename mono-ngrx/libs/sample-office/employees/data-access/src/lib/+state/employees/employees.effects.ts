@@ -18,10 +18,9 @@ export class EmployeesEffects {
     ofType(EmployeesActions.init),
     switchMap(() => this.employeeService.getEmployees()
       .pipe(
-        map(response => (EmployeesActions.loadEmployeesSuccess({ employees: response.data })),
-        catchError((error) => of(EmployeesActions.loadEmployeesFailure({ error }))
-      ))
-    )
+        map(response => (EmployeesActions.loadEmployeesSuccess({ employees: response.data }))),
+        catchError((error) => of(EmployeesActions.loadEmployeesFailure({ error })))
+      )
     )
   ));
 
@@ -29,12 +28,11 @@ export class EmployeesEffects {
   loadDetails$ = createEffect(() => this.actions$.pipe(
     ofType(EmployeesActions.loadEmployeeDetails),
     concatLatestFrom(()=>this.store.select(EmployeesSelectors.getSelectedIdFromRouter)),
-    switchMap((action, id) => {console.log('action',action); console.log('id',id); return this.employeeService.getEmployeeDetails(id)
+    switchMap(([action, id]) => {console.log('action',action); console.log('id',id); return this.employeeService.getEmployeeDetails(id)
     .pipe(
-      map(response => (EmployeesActions.loadEmployeeDetailsSuccess({employee: response.data})),
-      catchError((error)=> of(EmployeesActions.loadEmployeeDetailsFailure({error}))))
-   
-    )   })
+      map(response => (EmployeesActions.loadEmployeeDetailsSuccess({employee: response.data}))),
+      catchError((error)=> of(EmployeesActions.loadEmployeeDetailsFailure({error})))
+    )})
   ));
 
   constructor(private actions$: Actions,

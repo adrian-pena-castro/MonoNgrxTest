@@ -22,9 +22,9 @@ import { IonicModule } from '@ionic/angular';
         {
           path: '',
           redirectTo: 'employees',
-          pathMatch: 'full',
+    
         },
-        ]} 
+      ]} 
     ]),
   ],
   declarations: [MainContainerComponent],
