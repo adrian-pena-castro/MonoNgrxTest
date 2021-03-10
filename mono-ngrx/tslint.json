@@ -60,6 +60,22 @@
         "allow": [],
         "depConstraints": [
           {
+            "sourceTag": "scope:sample-office",
+            "onlyDependOnLibsWithTags": ["scope:sample-office"]
+          },
+          {
+            "sourceTag": "type:feature",
+            "onlyDependOnLibsWithTags": ["type:feature", "type:util", "type:data-access", "type:ui"]
+          },
+          {
+            "sourceTag": "type:ui",
+            "onlyDependOnLibsWithTags": ["type:util", "type:ui"]
+          },
+          {
+            "sourceTag": "type:util",
+            "onlyDependOnLibsWithTags": ["type:util"]
+          },
+          {
             "sourceTag": "*",
             "onlyDependOnLibsWithTags": ["*"]
           }

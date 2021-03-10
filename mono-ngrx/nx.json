@@ -43,7 +43,7 @@
       "tags": ["type:data-access", "scope:sample-office"]
     },
     "sample-office-util": {
-      "tags": []
+      "tags": ["type:util", "scope:sample-office"]
     }
   }
 }
