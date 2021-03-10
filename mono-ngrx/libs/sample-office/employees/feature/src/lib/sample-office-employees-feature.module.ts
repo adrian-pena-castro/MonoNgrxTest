@@ -5,12 +5,13 @@ import { EmployeesContainerComponent } from './employees-container/employees-con
 import { SampleOfficeEmployeesUiModule } from '@mono-ngrx/sample-office/employees/ui'
 import { IonicModule } from '@ionic/angular';
 import { EmployeeDetailContainerComponent } from './employee-detail-container/employee-detail-container.component';
-
+import { SampleOfficeEmployeesDataAccessModule } from '@mono-ngrx/sample-office/employees/data-access';
 @NgModule({
   imports: [
     CommonModule,
     IonicModule,
     SampleOfficeEmployeesUiModule,
+    SampleOfficeEmployeesDataAccessModule,
     RouterModule.forChild([
       {path: ':id', component: EmployeeDetailContainerComponent},
       {path: '', pathMatch: 'full', component: EmployeesContainerComponent},
