@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http'; 
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { NxModule } from '@nrwl/angular';
 import { StoreModule } from '@ngrx/store';
@@ -14,7 +15,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { StoreRouterConnectingModule, routerReducer  } from '@ngrx/router-store';
+import { StoreRouterConnectingModule, routerReducer, RouterState  } from '@ngrx/router-store';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,11 +35,12 @@ import { StoreRouterConnectingModule, routerReducer  } from '@ngrx/router-store'
       }
     ),
     EffectsModule.forRoot([]),
-    StoreRouterConnectingModule.forRoot(),
+    StoreRouterConnectingModule.forRoot({ routerState: RouterState.Minimal }),
     StoreDevtoolsModule.instrument()],
   providers: [
     StatusBar,
     SplashScreen,
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent],
