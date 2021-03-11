@@ -1,12 +1,12 @@
 
 <ion-card>
     <ion-card-header>
-      <ion-card-subtitle>{{employee.id}}</ion-card-subtitle>
-      <ion-card-title (click)="onTitleClicked()">{{employee.employee_name}}</ion-card-title>
+      <ion-card-subtitle>{{employee?.id}}</ion-card-subtitle>
+      <ion-card-title (click)="onTitleClicked()">{{employee?.employee_name}}</ion-card-title>
     </ion-card-header>
    
     <ion-card-content>
-      <p>Edad: {{employee.employee_age}}</p>
-      <p>Sueldo: {{employee.employee_salary}}</p>
+      <p>Edad: {{employee?.employee_age}}</p>
+      <p>Sueldo: {{employee?.employee_salary}}</p>
      </ion-card-content>
   </ion-card>
